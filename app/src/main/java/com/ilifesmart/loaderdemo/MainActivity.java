@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     + ContactsContract.Contacts.HAS_PHONE_NUMBER + "=1) AND ("
                     + ContactsContract.Contacts.DISPLAY_NAME + " != ''))";
 
+            // 触发调用是在CursorLoader.loadInBackground(); 最终到达onLoadFinished(*, Cursor);
             return new CursorLoader(getActivity(), baseUri, CONTACTS_SUMMARY_PROJECTION, select, null, null);
         }
 
